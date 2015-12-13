@@ -165,7 +165,7 @@ angular.module("app")
     //  for(var key in next.feed.data){
     //    $scope.msg.push(next.feed.data[key].message);
     //  }
-
+    if($scope.keyword.length != 0){
      for(var key in $scope.msg){
        for(var key2 in $scope.keyword){
          console.log($scope.msg[key].indexOf($scope.keyword[key2]));
@@ -173,6 +173,10 @@ angular.module("app")
             $scope.filter.push($scope.msg[key]);
        }
      }
+   }
+   else {
+     $scope.filter = $scope.msg;
+   }
 
    });
  }
