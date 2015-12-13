@@ -1,0 +1,57 @@
+<div class="grid-container">
+  <h1>facebook api feed</h1>
+  <h3>Busqueda de fan page en facebook</h3>
+  <input type="text" name="name" ng-model="dependencia" value="{{dependencia}}">
+  <h3>Busqueda de palabras clave del feed en facebook</h3>
+  <input type="text" name="name" ng-model="clave" value="{{dependencia}}">
+  <button type="button" name="button" ng-click="addClave()">agregar palabra clave</button>
+  <table>
+    <tr ng-repeat="key in keyword">
+      <td>
+        {{$index +1 }}.- {{key}}
+      </td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" name="button" ng-click="updateApiMe()">buscar</button>
+  <br><br>
+  <br>
+        <div>
+          <button class="btn btn-primary" ng-click="login()" ng-disabled="loginStatus.status == 'connected'">Connect with Facebook</button>
+           &nbsp;
+          <button class="btn btn-danger" ng-click="logout()" ng-disabled="!loginStatus || loginStatus.status != 'connected'">Logout</button>
+           &nbsp;
+          <button class="btn btn-success" ng-click="share()">FB.ui</button>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <table border="1px">
+              <tr ng-repeat="msj in filter track by $index">
+                <td>
+                  {{$index}}
+                </td>
+                <td>
+                  {{msj}}
+                </td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="medium-6 columns">
+            <h4 class="text-info">$FB.loginStatus()</h4>
+            <div class="code-block" hljs source="loginStatusJSON"></div>
+          </div>
+          <div class="medium-12 columns">
+            <h4 class="text-info">$FB.api('/{{dependencia}}')</h4>
+            <div class="code-block"  hljs source="apiMeJSON"></div>
+          </div>
+        </div>
+
+</div>
